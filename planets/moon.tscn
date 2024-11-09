@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://planets/planet.gd" type="Script" id=1]
+
+[sub_resource type="SphereMesh" id=1]
+radius = 10.0
+height = 20.0
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.462745, 0.462745, 0.462745, 1 )
+
+[sub_resource type="SphereShape" id=3]
+radius = 10.0
+
+[sub_resource type="SphereShape" id=4]
+radius = 30.0
+
+[node name="moon" type="StaticBody"]
+script = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 3 )
+
+[node name="Area" type="Area" parent="."]
+space_override = 2
+gravity_point = true
+gravity = 10.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 4 )
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://planets/planet_earth.tscn" type="PackedScene" id=2]
+[ext_resource path="res://planets/moon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Planet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://collider.tscn" type="PackedScene" id=5]
+
+[node name="space_map" type="Spatial"]
+
+[node name="planet_earth" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.7226, 0, 0 )
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -31.3591, 26.413, 0 )
+continuous_cd = true
+contact_monitor = true
+can_sleep = false
+
+[node name="Camera" type="Camera" parent="player"]
+transform = Transform( -0.999976, 0.00576653, -0.00395957, 0.00571536, 0.999902, 0.0128157, 0.00403308, 0.0127928, -0.99991, -0.0236053, 2.78446, -12.6954 )
+far = 8192.0
+
+[node name="moon" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.3773, 0, 0 )
+
+[node name="Planet" parent="." instance=ExtResource( 4 )]
+transform = Transform( 12, 0, 0, 0, 12, 0, 0, 0, 12, 40.1637, 0.0693583, -0.102755 )
+
+[node name="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 12, 0, 0, 0, 12, 0, 0, 0, 12, 40.1637, 0.0693583, -0.102755 )
