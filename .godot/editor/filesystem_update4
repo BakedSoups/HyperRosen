@@ -18,3 +18,7 @@ res://addons/naejimer_3d_planet_generator/scenes/planet_gaseous.tscn
 res://Enemy/enemy_3d.tscn
 res://scenes/menu.tscn
 res://scenes/pause_menu.tscn
+res://planets/iceplanet.tscn
+res://Pwen/pwen.gd
+res://scripts/button_container.gd
+res://scenes/cameraman.gd

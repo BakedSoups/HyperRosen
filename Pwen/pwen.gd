@@ -21,6 +21,8 @@ var planet_name = "space"
 
 
 func _ready():
+	print(planet_name)
+	$Camera3D.current = false
 	calc_gravity_direction("planet_earth")
 	lock_rotation = true  # Prevents the body from rotating
 	continuous_cd = true  # Enables continuous collision detection

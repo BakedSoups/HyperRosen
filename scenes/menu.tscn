@@ -13,11 +13,11 @@ shader_parameter/pixel_size = Vector2(4, 4)
 shader_parameter/pixel_factor = 0.5
 shader_parameter/enable_dithering = true
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t33lc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xu1is"]
 bg_color = Color(0.807843, 0.458824, 0.733333, 1)
 skew = Vector2(1, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnrqw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4p6r"]
 bg_color = Color(0.305882, 0.439216, 0.843137, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -25,14 +25,14 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_nsg6v"]
-Button/styles/hover = SubResource("StyleBoxFlat_t33lc")
-Button/styles/normal = SubResource("StyleBoxFlat_bnrqw")
+Button/styles/hover = SubResource("StyleBoxFlat_xu1is")
+Button/styles/normal = SubResource("StyleBoxFlat_m4p6r")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvfsg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6fdq"]
 bg_color = Color(0.807843, 0.458824, 0.733333, 1)
 skew = Vector2(1, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pcoi"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3huei"]
 bg_color = Color(0.305882, 0.439216, 0.843137, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -40,14 +40,14 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_k32fn"]
-Button/styles/hover = SubResource("StyleBoxFlat_dvfsg")
-Button/styles/normal = SubResource("StyleBoxFlat_1pcoi")
+Button/styles/hover = SubResource("StyleBoxFlat_c6fdq")
+Button/styles/normal = SubResource("StyleBoxFlat_3huei")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p85y"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2oryk"]
 bg_color = Color(0.807843, 0.458824, 0.733333, 1)
 skew = Vector2(1, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vevb4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nw4x2"]
 bg_color = Color(0.305882, 0.439216, 0.843137, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -55,8 +55,8 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_42gn2"]
-Button/styles/hover = SubResource("StyleBoxFlat_1p85y")
-Button/styles/normal = SubResource("StyleBoxFlat_vevb4")
+Button/styles/hover = SubResource("StyleBoxFlat_2oryk")
+Button/styles/normal = SubResource("StyleBoxFlat_nw4x2")
 
 [node name="Menu" type="Node3D"]
 
@@ -123,7 +123,7 @@ theme = SubResource("Theme_42gn2")
 text = "Quit"
 
 [node name="PlanetIce" parent="." instance=ExtResource("6_vv3gi")]
-transform = Transform3D(1.33287, 0, 1.49113, 0, 2, 0, -1.49113, 0, 1.33287, -0.0417837, -0.0848716, -0.0493224)
+transform = Transform3D(1.98177, 0, -0.269381, 0, 2, 0, 0.269381, 0, 1.98177, -0.0417837, -0.0848716, -0.0493224)
 
 [connection signal="pressed" from="menu_container/play_button" to="menu_container" method="_on_play_button_pressed"]
 [connection signal="pressed" from="menu_container/quit_button" to="menu_container" method="_on_quit_button_pressed"]
