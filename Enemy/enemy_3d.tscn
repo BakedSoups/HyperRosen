@@ -53,7 +53,7 @@ wait_time = 3.04
 [node name="AlertTimer" type="Timer" parent="."]
 wait_time = 1.5
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="BlackBox" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_ds88g")
 
 [connection signal="body_entered" from="Alert" to="." method="_on_alert_body_entered"]

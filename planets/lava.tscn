@@ -26,7 +26,7 @@ gravity = 22.178
 shape = SubResource("4")
 
 [node name="PlanetLava" parent="." instance=ExtResource("2_d42mi")]
-transform = Transform3D(13.8573, 0, 7.99838, 0, 16, 0, -7.99838, 0, 13.8573, 0, 0, 0)
+transform = Transform3D(15.9602, 0, 1.12779, 0, 16, 0, -1.12779, 0, 15.9602, 0, 0, 0)
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

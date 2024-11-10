@@ -75,6 +75,7 @@ func _on_alert_body_entered(body):
 		idleTimer.stop()
 		velocity = Vector3.ZERO
 		alertTimer.start()
+		get_node("BlackBox").visible = false
 
 func _on_alert_body_exited(body):
 	if body == player:

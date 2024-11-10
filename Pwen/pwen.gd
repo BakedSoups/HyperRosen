@@ -19,6 +19,7 @@ var planet_name = "space"
 
 
 func _ready():
+	GameData.player = self
 	calc_gravity_direction("planet_earth")
 	lock_rotation = true  # Prevents the body from rotating
 	continuous_cd = true  # Enables continuous collision detection
