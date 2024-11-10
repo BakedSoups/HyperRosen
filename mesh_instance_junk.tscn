@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dug5lpum32lma"]
+
+[ext_resource type="Shader" path="res://scenes/main.gdshader" id="1_8sc8b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_arcde"]
+render_priority = 0
+shader = ExtResource("1_8sc8b")
+shader_parameter/color1 = null
+shader_parameter/color2 = null
+shader_parameter/direction = Vector2(1, 1)
+shader_parameter/speed = 1.212
+shader_parameter/refraction_strength = 0.05
+shader_parameter/model_height = 2.0
+shader_parameter/dissolve_start = 0.0
+shader_parameter/dissolve_length = 1.0
+shader_parameter/gradient_bias = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_8rsa2"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+transform = Transform3D(0.596197, -4.21468e-08, -0.802838, -0.339294, 0.906308, -0.251964, 0.72762, 0.422618, 0.540339, 0, 8.36287e-07, -6.3066e-06)
+material_override = SubResource("ShaderMaterial_arcde")
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_8rsa2")
+skeleton = NodePath("../..")

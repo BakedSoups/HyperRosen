@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://6u14cxj0xq0k"]
+
+[ext_resource type="Shader" path="res://scenes/dream2.gdshader" id="1_ubds1"]
+
+[resource]
+shader = ExtResource("1_ubds1")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/speed = 0.5
+shader_parameter/pink = Color(1, 0.4, 0.7, 0.2)
+shader_parameter/blue = Color(0.4, 0.6, 1, 0.2)

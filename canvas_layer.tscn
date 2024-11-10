@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5tt3ipxaenda"]
+
+[ext_resource type="Shader" path="res://scenes/main.gdshader" id="1_7m5wo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7j4hf"]
+render_priority = 0
+shader = ExtResource("1_7m5wo")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_7j4hf")
+offset_right = 1274.0
+offset_bottom = 714.0

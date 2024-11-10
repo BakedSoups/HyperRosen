@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://iq3bd862qeoa"]
+
+[ext_resource type="Script" path="res://planets/planet.gd" id="1_8y3fv"]
+[ext_resource type="Texture2D" uid="uid://drxngbtbimlmu" path="res://textures/earth_clouds.jpg" id="2_hf755"]
+[ext_resource type="Texture2D" uid="uid://b1kpcnbuuat0f" path="res://textures/2k_neptune.jpg" id="3_ovhkd"]
+[ext_resource type="PackedScene" uid="uid://c1ml4yvlgnbbv" path="res://addons/naejimer_3d_planet_generator/scenes/planet_gaseous.tscn" id="4_qm36y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpqi5"]
+albedo_texture = ExtResource("2_hf755")
+
+[sub_resource type="SphereMesh" id="1"]
+radius = 20.0
+height = 40.0
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_hujru"]
+albedo_texture = ExtResource("3_ovhkd")
+
+[sub_resource type="SphereShape3D" id="3"]
+radius = 20.0
+
+[node name="mars" type="StaticBody3D"]
+script = ExtResource("1_8y3fv")
+
+[node name="MeshInstance" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_hpqi5")
+mesh = SubResource("1")
+surface_material_override/0 = SubResource("ORMMaterial3D_hujru")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("3")
+
+[node name="Area" type="Area3D" parent="."]
+gravity_space_override = 3
+gravity_point = true
+gravity = 20.0
+
+[node name="PlanetGaseous" parent="." instance=ExtResource("4_qm36y")]
+transform = Transform3D(40.4954, 0, 0.607017, 0, 40.5, 0, -0.607017, 0, 40.4954, 0, 0, 0)
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

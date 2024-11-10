@@ -1,17 +1,30 @@
-# Procedural Planet Generator
-This is intended as a sample, learning project following the series [Procedural Planet Generationo](https://www.youtube.com/playlist?list=PL43PN07AM4J_7ZkZAUotpfijJSoibrvbr) on Youtube
+<p align="center"><img src="icon.png"/></p>
 
-Each commit should follow one episode of the series.
+# Starter Kit 3D Platformer
 
-## WARNING
-This code is provided as-is.
+This package includes a basic template for a 3D platformer game in Godot 4.3 (stable). Includes features like;
 
-## Run
-Run the project in Godot 3.3.2 official release
-* Main.tscn contains the Camera setup with a reference to the planet generator
-* Planet.tscn contains the code for generating the planet
-* If you plan to use the result inside a project I strongly suggest removing the setget and tool keywords so as to not regenerate the mesh while in a game
+- Character controller (with double jump)
+- Collectable coins and falling platforms
+- Camera controls (rotate, zoom)
+- Gamepad support
+- Sprites and 3D Models _(CC0 licensed)_
+- Sound effects _(CC0 licensed)_
 
-## License
+### Screenshot
 
-Use at your own risk. Give attribution if you can. Do whatever you want with the code. No guarantees.
+<p align="center"><img src="screenshots/screenshot.png"/></p>
+
+### License
+
+MIT License
+
+Copyright (c) 2024 Kenney
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Assets included in this package (2D sprites, 3D models and sound effects) are [CC0 licensed](https://creativecommons.org/publicdomain/zero/1.0/)

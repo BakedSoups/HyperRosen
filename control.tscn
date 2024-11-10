@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c244440su8gi8"]
+
+[sub_resource type="Shader" id="Shader_7rrkm"]
+code = "shader_type spatial;"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c27cp"]
+render_priority = 0
+shader = SubResource("Shader_7rrkm")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_c27cp")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(32.0057, 17.7821)

@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dpg38p3je5s5l"]
+
+[node name="XRCamera3D" type="XRCamera3D"]
+transform = Transform3D(-0.02, -2.58501e-18, -1.74846e-09, -5.56876e-10, 0.0189585, 0.00636992, 1.6574e-09, 0.00636992, -0.0189585, 0, 0.0449577, -0.0637469)

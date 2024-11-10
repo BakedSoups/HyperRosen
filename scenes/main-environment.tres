@@ -1,0 +1,35 @@
+[gd_resource type="Environment" load_steps=5 format=3 uid="uid://bqnqgflivjvue"]
+
+[ext_resource type="Shader" path="res://scenes/skyshade.gdshader" id="1_ckovh"]
+[ext_resource type="Texture2D" uid="uid://b3kdu5hidmkpm" path="res://skymap3.png" id="2_yqnlr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l4yi4"]
+shader = ExtResource("1_ckovh")
+shader_parameter/energy = 1.0
+shader_parameter/gamma = 1.0
+shader_parameter/scale = 1.0
+shader_parameter/triplanar_blend_power = 4.0
+shader_parameter/seamless_blend = 0.1
+shader_parameter/sky_tex = ExtResource("2_yqnlr")
+
+[sub_resource type="Sky" id="Sky_7bk1c"]
+sky_material = SubResource("ShaderMaterial_l4yi4")
+
+[resource]
+background_mode = 2
+background_color = Color(0.752941, 0.776471, 0.827451, 1)
+sky = SubResource("Sky_7bk1c")
+ambient_light_source = 2
+ambient_light_color = Color(0.662745, 0.694118, 0.772549, 1)
+ambient_light_energy = 1.15
+reflected_light_source = 2
+tonemap_mode = 2
+ssao_enabled = true
+ssao_radius = 0.45
+ssao_intensity = 1.0
+ssao_power = 15.0
+glow_enabled = true
+glow_levels/2 = 0.6
+glow_levels/3 = 0.6
+glow_levels/5 = 0.0
+glow_intensity = 2.0
