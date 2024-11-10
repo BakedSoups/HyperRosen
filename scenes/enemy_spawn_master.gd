@@ -80,7 +80,7 @@ func _ready() -> void:
 	# Wait a frame to ensure all planets are loaded
 	await get_tree().create_timer(0.1).timeout
 	
-	for i in range(90):
+	for i in range(80):
 		var success = spawn_enemy("enemy")
 		if not success:
 			print("Failed to spawn enemy #", i + 1)

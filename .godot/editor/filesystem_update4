@@ -23,3 +23,4 @@ res://addons/naejimer_3d_planet_generator/noises/planet_no_atmosphere.tres
 res://example.tscn
 res://planets/iceplanet.tscn
 res://planets/lava.tscn
+res://Pwen/pwen.gd

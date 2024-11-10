@@ -1,3 +1,6 @@
+TextureRect
+Control
+AudioStreamPlayer2D
 MeshInstance3D
 Node3D
 AnimationPlayer
@@ -10,5 +13,3 @@ CPUParticles3D
 DirectionalLight3D
 OmniLight3D
 XRCamera3D
-CollisionShape3D
-ColorRect

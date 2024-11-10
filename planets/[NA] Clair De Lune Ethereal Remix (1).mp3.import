@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ehf6ko3p74hb"
+path="res://.godot/imported/[NA] Clair De Lune Ethereal Remix (1).mp3-8c0e86941fe762e4427837fa6a29084f.mp3str"
+
+[deps]
+
+source_file="res://planets/[NA] Clair De Lune Ethereal Remix (1).mp3"
+dest_files=["res://.godot/imported/[NA] Clair De Lune Ethereal Remix (1).mp3-8c0e86941fe762e4427837fa6a29084f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

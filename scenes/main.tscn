@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://bqqgyqafm7xwp"]
+[gd_scene load_steps=33 format=3 uid="uid://bqqgyqafm7xwp"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_ahusb"]
 [ext_resource type="PackedScene" uid="uid://bel3nwkj83tfe" path="res://planets/moon.tscn" id="6_j8ggv"]
 [ext_resource type="PackedScene" uid="uid://c6rfapywg2en6" path="res://scenes/pause_menu.tscn" id="7_7lgo7"]
+[ext_resource type="Texture2D" uid="uid://dxwl1gbawqr42" path="res://imassge-export.png" id="9_h4rp4"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="11_apvpm"]
 [ext_resource type="PackedScene" uid="uid://dbsw5xttvl5jb" path="res://Enemy/enemy_3d.tscn" id="12_2exwb"]
 [ext_resource type="PackedScene" uid="uid://lk468n16kfqq" path="res://planets/planet_earth.tscn" id="12_jiwwv"]
@@ -165,6 +166,7 @@ offset_bottom = 718.0
 
 [node name="menu_container" type="VBoxContainer" parent="CanvasLayer"]
 visibility_layer = 524288
+z_index = 3
 offset_left = 566.5
 offset_top = 390.5
 offset_right = 713.5
@@ -172,19 +174,31 @@ offset_bottom = 467.5
 script = ExtResource("15_yylox")
 
 [node name="play_button" type="Button" parent="CanvasLayer/menu_container"]
+z_index = 3
 layout_mode = 2
 theme = SubResource("Theme_fjcmi")
 text = "Play"
 
 [node name="load_button" type="Button" parent="CanvasLayer/menu_container"]
+z_index = 3
 layout_mode = 2
 theme = SubResource("Theme_4sl63")
 text = "Load"
 
 [node name="quit_button" type="Button" parent="CanvasLayer/menu_container"]
+z_index = 3
 layout_mode = 2
 theme = SubResource("Theme_1x41d")
 text = "Quit"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 188.0
+offset_top = 117.0
+offset_right = 1140.0
+offset_bottom = 216.0
+scale = Vector2(0.960583, 0.990471)
+texture = ExtResource("9_h4rp4")
+expand_mode = 1
 
 [node name="moon" parent="." instance=ExtResource("6_j8ggv")]
 transform = Transform3D(0.8, -1.1921e-07, -4.76836e-08, 1.1921e-07, 0.8, 1.18585e-20, 4.76836e-08, -7.10544e-15, 0.8, -31.6977, -15.201, -32.6481)
@@ -194,9 +208,12 @@ transform = Transform3D(0.3, -0.000507889, 0, 0.000507889, 0.3, 0, 0, 0, 0.3, -3
 
 [node name="Player" parent="." instance=ExtResource("13_6jr3d")]
 transform = Transform3D(50, -1.74393e-14, 1.74394e-14, 1.75908e-14, 49.9981, -0.436327, -1.72865e-14, 0.436327, 49.9981, 42.2727, 13.6279, 0.0769963)
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
 
 [node name="Star2" parent="." instance=ExtResource("12_yl8k1")]
-transform = Transform3D(-3.64663, 0, 7.12044, 0, 8, 0, -7.12044, 0, -3.64663, -122.921, -93.1096, 112.96)
+transform = Transform3D(-2.59202, 0, 7.56835, 0, 8, 0, -7.56835, 0, -2.59202, -122.921, -93.1096, 112.96)
 skeleton = NodePath("../Star/Star")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Star2"]
@@ -209,7 +226,7 @@ omni_range = 25.058
 omni_attenuation = 10.0
 
 [node name="Star" parent="." instance=ExtResource("12_yl8k1")]
-transform = Transform3D(-0.911672, 0, 1.78014, 0, 2, 0, -1.78014, 0, -0.911672, -31.4131, -15.2654, -32.4096)
+transform = Transform3D(-0.648015, 0, 1.89212, 0, 2, 0, -1.89212, 0, -0.648015, -31.4131, -15.2654, -32.4096)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Star"]
 light_color = Color(1, 1, 0.435294, 1)
@@ -221,7 +238,7 @@ omni_range = 25.058
 omni_attenuation = 10.0
 
 [node name="Star" parent="Star" instance=ExtResource("12_yl8k1")]
-transform = Transform3D(-18.2334, 0, 35.6026, 0, 40, 0, -35.6026, 0, -18.2334, 3231.51, -4.636, 604.431)
+transform = Transform3D(-12.9603, 0, 37.8422, 0, 40, 0, -37.8422, 0, -12.9603, 3231.51, -4.636, 604.431)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Star/Star"]
 light_color = Color(1, 1, 0.435294, 1)

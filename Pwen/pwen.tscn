@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Pwen/pwen.gd" id="1_7r1yt"]
 [ext_resource type="Texture2D" uid="uid://cg3qlpgh810vg" path="res://Pwen/penguin_tex.jpg" id="2_s4u3h"]
 [ext_resource type="Texture2D" uid="uid://8ggihh27mlrr" path="res://sprites/blob_shadow.png" id="3_162xr"]
-[ext_resource type="AudioStream" uid="uid://cydjn1ct3hps2" path="res://sounds/walking.ogg" id="5_178ww"]
 [ext_resource type="Script" path="res://Pwen/camera_3d.gd" id="5_a7p2u"]
+[ext_resource type="AudioStream" uid="uid://ehf6ko3p74hb" path="res://planets/[NA] Clair De Lune Ethereal Remix (1).mp3" id="5_s13ny"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xj5ef"]
 
@@ -1807,6 +1807,9 @@ _data = {
 
 [node name="Player" type="RigidBody3D"]
 transform = Transform3D(50, -1.74393e-14, 1.74393e-14, 1.74393e-14, 50, -1.74393e-14, -1.74393e-14, 1.74393e-14, 50, 0.0524163, 0.21691, 0.122719)
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 can_sleep = false
 contact_monitor = true
 max_contacts_reported = 2
@@ -2073,14 +2076,12 @@ texture_albedo = ExtResource("3_162xr")
 modulate = Color(1, 1, 1, 0.705882)
 normal_fade = 0.5
 
-[node name="SoundFootsteps" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_178ww")
-volume_db = -5.0
-pitch_scale = 1.25
-autoplay = true
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.0198956, 1.08526e-10, 0.00204092, 0.00119345, 0.0162241, 0.0116341, -0.00165561, 0.0116952, -0.0161394, -0.00208493, 0.0899493, -0.0816669)
 script = ExtResource("5_a7p2u")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CPUParticles3D"]
+stream = ExtResource("5_s13ny")
+parameters/looping = true
