@@ -1,3 +1,4 @@
+AudioStreamPlayer3D
 TextureRect
 Control
 AudioStreamPlayer2D
@@ -12,4 +13,3 @@ Camera3D
 CPUParticles3D
 DirectionalLight3D
 OmniLight3D
-XRCamera3D
