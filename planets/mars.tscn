@@ -35,7 +35,7 @@ gravity_point = true
 gravity = 20.0
 
 [node name="PlanetGaseous" parent="." instance=ExtResource("4_qm36y")]
-transform = Transform3D(40.4954, 0, 0.607017, 0, 40.5, 0, -0.607017, 0, 40.4954, 0, 0, 0)
+transform = Transform3D(40.375, 0, 3.17973, 0, 40.5, 0, -3.17973, 0, 40.375, 0, 0, 0)
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

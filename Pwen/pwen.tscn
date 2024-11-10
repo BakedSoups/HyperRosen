@@ -2082,3 +2082,5 @@ autoplay = true
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.0198956, 1.08526e-10, 0.00204092, 0.00119345, 0.0162241, 0.0116341, -0.00165561, 0.0116952, -0.0161394, -0.00208493, 0.0899493, -0.0816669)
 script = ExtResource("5_a7p2u")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]

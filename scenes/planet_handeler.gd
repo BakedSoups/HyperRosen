@@ -4,11 +4,31 @@ var moon_count = 0
 # Dictionary mapping planet names to their scene paths
 var planet_scenes = {
 	"moon": "res://planets/moon.tscn",
-	"mars": "res://planets/mars.tscn"
+	"mars": "res://planets/mars.tscn",
+	"planet_earth": "res://planets/planet_earth.tscn"
 	# Add more planets as needed
 }
 
 func spawn_planet(planet_type: String) -> bool:
+	print(planet_type)
+	var bordermin = 200
+	var bordermax = 200
+	var maxGap = 300
+	
+	if planet_type == 'mars':
+		bordermin = -500
+		bordermax =  500
+		maxGap = 300
+	elif planet_type == 'moon':
+		bordermin = -200
+		bordermax =  200 
+		maxGap = 80
+	elif planet_type == 'planet_earth':
+		bordermin = -500
+		bordermax =  500
+		maxGap = 300
+
+		
 	var scene_path = planet_scenes.get(planet_type)
 	if not scene_path:
 		print("Unknown planet type: ", planet_type)
@@ -23,9 +43,9 @@ func spawn_planet(planet_type: String) -> bool:
 	
 	while !valid_position and attempts < max_attempts:
 		var random_pos = Vector3(
-			randf_range(-50, 50),
-			randf_range(-50, 50),
-			randf_range(-50, 50)
+			randf_range(bordermin, bordermax),
+			randf_range(bordermin, bordermax), 
+			randf_range(bordermin, bordermax)
 		)
 		
 		valid_position = true
@@ -33,7 +53,7 @@ func spawn_planet(planet_type: String) -> bool:
 		for node in get_children():
 			if node.is_in_group("planets"):
 				var distance = random_pos.distance_to(node.position)
-				if distance < 80:
+				if distance < maxGap:
 					valid_position = false
 					break
 		
@@ -66,13 +86,13 @@ func spawn_planet(planet_type: String) -> bool:
 		
 func _ready() -> void:
 	# List of planets to spawn
-	var planets_to_spawn = ["moon", "moon",]
-	var rng = RandomNumberGenerator.new()
-	print("fjsaldkfsanvvj")
-	print(rng)
-	#var rand = planets[rng.randi_range(0,planets_to_spawn)]
-	#load("res://planets/%s.tscn" % rand)
-	
-	# Spawn each planet in the list
-	for planet_type in planets_to_spawn:
-		spawn_planet(planet_type)
+	for i in range(12):
+		var planets_to_spawn = ["mars","mars","planet_earth", "moon","moon"]
+		var rng = RandomNumberGenerator.new()
+
+		#var rand = planets[rng.randi_range(0,planets_to_spawn)]
+		#load("res://planets/%s.tscn" % rand)
+		
+		# Spawn each planet in the list
+		for planet_type in planets_to_spawn:
+			spawn_planet(planet_type)

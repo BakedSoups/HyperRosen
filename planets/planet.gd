@@ -1,6 +1,7 @@
 extends StaticBody3D
 func _ready():
 	add_to_group("planets")
+	
 func _on_Area_body_entered(body):
 	if body.name == "Player":
 		print("player")
