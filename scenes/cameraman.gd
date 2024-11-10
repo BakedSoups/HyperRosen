@@ -16,13 +16,19 @@ func _process(delta):
 
 
 func move_toward_pwen():
-	var distance = position.distance_to(GameData.player.position)
-	if distance < 5:
-		position = GameData.player.position
+	var distance = get_global_position().distance_to(GameData.player.get_node("Camera3D").get_global_position())
+	if distance < 30:
+		$Camera3D/AnimationPlayer.play("turn_around")
+		#position = GameData.player.get_node("Camera3D").get_global_position()
 	
-	if position != GameData.player.position:
-		velocity = position.direction_to(GameData.player.position) * 80
-	else:
-		$Camera3D.current = false
-		GameData.player.get_node("Camera3D").current = true
-		queue_free()
+	if distance < 3:
+		position = GameData.player.get_node("Camera3D").get_global_position()
+	
+	if position != GameData.player.get_node("Camera3D").get_global_position():
+		velocity = get_global_position().direction_to(GameData.player.get_node("Camera3D").get_global_position()) * 20
+
+
+func _on_animation_player_animation_finished(anim_name):
+	$Camera3D.current = false
+	GameData.player.get_node("Camera3D").current = true
+	queue_free()
