@@ -214,7 +214,7 @@ axis_lock_angular_y = false
 axis_lock_angular_z = false
 
 [node name="Star2" parent="." instance=ExtResource("12_yl8k1")]
-transform = Transform3D(0.752057, 0, -7.96448, 0, 8, 0, 7.96448, 0, 0.752057, -122.921, -93.1096, 112.96)
+transform = Transform3D(1.36578, 0, -7.88246, 0, 8, 0, 7.88246, 0, 1.36578, -122.921, -93.1096, 112.96)
 skeleton = NodePath("../Star/Star")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Star2"]
@@ -227,7 +227,7 @@ omni_range = 25.058
 omni_attenuation = 10.0
 
 [node name="Star" parent="." instance=ExtResource("12_yl8k1")]
-transform = Transform3D(0.188017, 0, -1.99115, 0, 2, 0, 1.99115, 0, 0.188017, -31.4131, -15.2654, -32.4096)
+transform = Transform3D(0.34145, 0, -1.97064, 0, 2, 0, 1.97064, 0, 0.34145, -31.4131, -15.2654, -32.4096)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Star"]
 light_color = Color(1, 1, 0.435294, 1)
@@ -239,7 +239,7 @@ omni_range = 25.058
 omni_attenuation = 10.0
 
 [node name="Star" parent="Star" instance=ExtResource("12_yl8k1")]
-transform = Transform3D(3.76033, 0, -39.8229, 0, 40, 0, 39.8229, 0, 3.76033, 3231.51, -4.636, 604.431)
+transform = Transform3D(6.82897, 0, -39.4128, 0, 40, 0, 39.4128, 0, 6.82897, 3231.51, -4.636, 604.431)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Star/Star"]
 light_color = Color(1, 1, 0.435294, 1)
