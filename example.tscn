@@ -20,27 +20,27 @@ glow_blend_mode = 0
 [node name="Planets" type="Node3D" parent="."]
 
 [node name="PlanetNoAtmosphere" parent="Planets" instance=ExtResource("4_mbgn3")]
-transform = Transform3D(-19.8135, 0, 199.016, 0, 200, 0, -199.016, 0, -19.8135, 0, 0, 0)
+transform = Transform3D(199.076, 0, 19.1977, 0, 200, 0, -19.1977, 0, 199.076, 0, 0, 0)
 skeleton = NodePath("../..")
 
 [node name="PlanetIce" parent="Planets" instance=ExtResource("3_mm0k4")]
-transform = Transform3D(359, 0, 124.575, 0, 380, 0, -124.575, 0, 359, 369.316, 0, 0)
+transform = Transform3D(379.93, 0, 7.30593, 0, 380, 0, -7.30593, 0, 379.93, 369.316, 0, 0)
 
 [node name="PlanetLava" parent="Planets" instance=ExtResource("3_3uru6")]
-transform = Transform3D(359, 0, 124.575, 0, 380, 0, -124.575, 0, 359, 844.344, 0, 0)
+transform = Transform3D(379.93, 0, 7.30593, 0, 380, 0, -7.30593, 0, 379.93, 844.344, 0, 0)
 
 [node name="PlanetSand" parent="Planets" instance=ExtResource("4_h2dlt")]
-transform = Transform3D(358.998, 0, 124.574, 0, 380, 0, -124.574, 0, 358.998, 1317.07, 0, 0)
+transform = Transform3D(379.927, 0, 7.30589, 0, 380, 0, -7.30589, 0, 379.927, 1317.07, 0, 0)
 
 [node name="PlanetTerrestrial" parent="Planets" instance=ExtResource("2_j1hjd")]
-transform = Transform3D(377.895, 0, 131.132, 0, 400, 0, -131.132, 0, 377.895, 1803.38, 0, 0)
+transform = Transform3D(399.926, 0, 7.69046, 0, 400, 0, -7.69046, 0, 399.926, 1803.38, 0, 0)
 
 [node name="PlanetGaseous" parent="Planets" instance=ExtResource("4_bn1xh")]
-transform = Transform3D(731.282, 0, 324.386, 0, 800, 0, -324.386, 0, 731.282, 2515.88, 0, 0)
+transform = Transform3D(799.769, 0, 19.2255, 0, 800, 0, -19.2255, 0, 799.769, 2515.88, 0, 0)
 skeleton = NodePath("../..")
 
 [node name="Star" parent="Planets" instance=ExtResource("6_7xwvl")]
-transform = Transform3D(-964.98, 0, 713.313, 0, 1200, 0, -713.313, 0, -964.98, 3658.05, 0, 0)
+transform = Transform3D(1187.55, 0, 172.447, 0, 1200, 0, -172.447, 0, 1187.55, 3658.05, 0, 0)
 layers = 2
 skeleton = NodePath("../..")
 

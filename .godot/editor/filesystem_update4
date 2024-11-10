@@ -23,3 +23,6 @@ res://scripts/button_container.gd
 res://Enemy/enemy_3d.gd
 res://scripts/pause_menu.gd
 res://Pwen/pwen.gd
+res://planets/win.tscn
+res://game_data.gd
+res://planets/win.gd

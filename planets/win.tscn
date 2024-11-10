@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwtxk5id32uaj"]
+
+[ext_resource type="Script" path="res://planets/planet.gd" id="1_6t43l"]
+[ext_resource type="Texture2D" uid="uid://81r2371is5if" path="res://textures/win.png" id="2_pjp0d"]
+
+[sub_resource type="SphereMesh" id="1"]
+radius = 10.0
+height = 20.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yk7qj"]
+albedo_texture = ExtResource("2_pjp0d")
+
+[sub_resource type="SphereShape3D" id="3"]
+radius = 10.0
+
+[sub_resource type="SphereShape3D" id="4"]
+radius = 30.0
+
+[node name="moon" type="StaticBody3D"]
+script = ExtResource("1_6t43l")
+
+[node name="MeshInstance" type="MeshInstance3D" parent="."]
+mesh = SubResource("1")
+surface_material_override/0 = SubResource("StandardMaterial3D_yk7qj")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("3")
+
+[node name="Area" type="Area3D" parent="."]
+gravity_space_override = 3
+gravity_point = true
+gravity = 22.178
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Area"]
+shape = SubResource("4")
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

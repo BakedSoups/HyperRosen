@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bqqgyqafm7xwp"]
+[gd_scene load_steps=36 format=3 uid="uid://bqqgyqafm7xwp"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_ahusb"]
 [ext_resource type="PackedScene" uid="uid://bel3nwkj83tfe" path="res://planets/moon.tscn" id="6_j8ggv"]
@@ -19,6 +19,8 @@
 [ext_resource type="Material" uid="uid://6u14cxj0xq0k" path="res://new_shader_material.tres" id="17_ixr2s"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="17_tk810"]
 [ext_resource type="AudioStream" uid="uid://ehf6ko3p74hb" path="res://planets/[NA] Clair De Lune Ethereal Remix (1).mp3" id="19_fjjxj"]
+[ext_resource type="PackedScene" uid="uid://dwtxk5id32uaj" path="res://planets/win.tscn" id="20_1aolh"]
+[ext_resource type="Script" path="res://planets/win.gd" id="21_igy6s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_38ys3"]
 font = ExtResource("17_tk810")
@@ -214,7 +216,7 @@ axis_lock_angular_y = false
 axis_lock_angular_z = false
 
 [node name="Star2" parent="." instance=ExtResource("12_yl8k1")]
-transform = Transform3D(7.99356, 0, 0.318668, 0, 8, 0, -0.318668, 0, 7.99356, -122.921, -93.1096, 112.96)
+transform = Transform3D(6.70096, 0, 4.36986, 0, 8, 0, -4.36986, 0, 6.70096, -122.921, -93.1096, 112.96)
 skeleton = NodePath("../Star/Star")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Star2"]
@@ -227,7 +229,7 @@ omni_range = 25.058
 omni_attenuation = 10.0
 
 [node name="Star" parent="." instance=ExtResource("12_yl8k1")]
-transform = Transform3D(1.99842, 0, 0.0796683, 0, 2, 0, -0.0796683, 0, 1.99842, -31.4131, -15.2654, -32.4096)
+transform = Transform3D(1.67526, 0, 1.09248, 0, 2, 0, -1.09248, 0, 1.67526, -31.4131, -15.2654, -32.4096)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Star"]
 light_color = Color(1, 1, 0.435294, 1)
@@ -239,7 +241,7 @@ omni_range = 25.058
 omni_attenuation = 10.0
 
 [node name="Star" parent="Star" instance=ExtResource("12_yl8k1")]
-transform = Transform3D(39.9683, 0, 1.59336, 0, 40, 0, -1.59336, 0, 39.9683, 3231.51, -4.636, 604.431)
+transform = Transform3D(33.5052, 0, 21.8496, 0, 40, 0, -21.8496, 0, 33.5052, 3231.51, -4.636, 604.431)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Star/Star"]
 light_color = Color(1, 1, 0.435294, 1)
@@ -280,6 +282,10 @@ script = ExtResource("17_5prbg")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("19_fjjxj")
 autoplay = true
+
+[node name="moon_2" parent="." instance=ExtResource("20_1aolh")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -652.606, 0, -111.272)
+script = ExtResource("21_igy6s")
 
 [connection signal="pressed" from="CanvasLayer/menu_container/play_button" to="CanvasLayer/menu_container" method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/menu_container/quit_button" to="CanvasLayer/menu_container" method="_on_quit_button_pressed"]

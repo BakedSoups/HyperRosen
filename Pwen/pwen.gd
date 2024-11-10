@@ -100,6 +100,11 @@ func _walk_around_planet(state):
 
 var target_rotation = 0
 func _move():
+	if Input.is_action_just_pressed("goto_win"):
+		position = get_parent().get_node("moon_2").position
+		position.y += 10
+		$AnimationPlayer.play("Macarena")
+
 	#handles all input and logic related to character movement
 	#move
 	#direction = direction.rotated(Vector3.UP, h_rot).normalized()
@@ -179,7 +184,6 @@ func _move():
 		#sprite.rotation.y = lerp_angle(sprite.rotation.y, -10*input_dir.x, 1* get_physics_process_delta_time())
 		#sprite.rotation.x = lerp_angle(sprite.rotation.x, -10*input_dir.y, 1* get_physics_process_delta_time())
 	# Smoothly interpolate sprite rotation
-		
 
 func set_planet_name(n):
 	print ("setting new planet: ", n)
