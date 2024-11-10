@@ -9,7 +9,7 @@ var gravity_direction = Vector3()
 var move_force = 25
 var jump_force = 15
 var y_velo = 0
-
+var win = false
 var is_on_floor = false
 var floor_check_distance = 50  # Adjust based on your character's size
 
@@ -43,7 +43,8 @@ func _integrate_forces(state):
 			planet_name = collider.name 
 		print(linear_velocity.length())
 		
-		if collider.name == planet_name and linear_velocity.length() < .2: 
+		if (collider.name == planet_name) and (linear_velocity.length() < .2) and (not win): 
+			# rotate to face screen
 			$AnimationPlayer.play("Idle")
 		
 
@@ -60,6 +61,7 @@ func calc_gravity_direction(planet):
 			if node.name.begins_with(planet):
 				planet_node = node
 				break
+			
 	
 	# If we found a valid planet node, calculate gravity direction
 	if planet_node != null:
@@ -100,15 +102,17 @@ func _walk_around_planet(state):
 
 var target_rotation = 0
 func _move():
+	
 	if Input.is_action_just_pressed("goto_win"):
 		position = get_parent().get_node("moon_2").position
 		position.y += 10
-		$AnimationPlayer.play("Macarena")
+		print("macernea")
+		win = true
 
 	#handles all input and logic related to character movement
 	#move
 	#direction = direction.rotated(Vector3.UP, h_rot).normalized()
-	if planet_name != "space":
+	if planet_name != "space" and (not win):
 		if Input.is_action_just_pressed("jump"):
 			apply_impulse(jump_force* global_transform.basis.y)
 			$AnimationPlayer.play("Run n Dive")
@@ -148,7 +152,7 @@ func _move():
 			
 			sprite.rotation.z = lerp_angle(sprite.rotation.z, target_rotation, 1* get_physics_process_delta_time())
 
-	if planet_name == "space":
+	if (planet_name == "space")and (not win):
 		var speed = 10
 		var rotate_speed = 10
 		var tilt_effect = 5.0
@@ -181,6 +185,10 @@ func _move():
 		position += global_transform.basis.z * speed * get_physics_process_delta_time()
 		$AnimationPlayer.play("Swim")
 		print(rotation)
+		
+	if win == true:
+		$AnimationPlayer.play("Macarena")
+		sprite.rotation.z = lerp_angle(sprite.rotation.z, PI, get_physics_process_delta_time())
 		#sprite.rotation.y = lerp_angle(sprite.rotation.y, -10*input_dir.x, 1* get_physics_process_delta_time())
 		#sprite.rotation.x = lerp_angle(sprite.rotation.x, -10*input_dir.y, 1* get_physics_process_delta_time())
 	# Smoothly interpolate sprite rotation
