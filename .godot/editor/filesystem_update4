@@ -5,6 +5,7 @@ res://addons/naejimer_3d_planet_generator/noises/star.tres
 res://scenes/pixelated.gdshader
 res://scenes/dream2.gdshader
 res://addons/naejimer_3d_planet_generator/noises/planet_gaseous.tres
+res://addons/naejimer_3d_planet_generator/noises/planet_ice.tres
 res://scenes/main.gdshader
 res://control.gdshader
 res://scenes/hyper.gdshader
@@ -15,11 +16,5 @@ res://addons/naejimer_3d_planet_generator/scenes/star.tscn
 res://planets/mars.tscn
 res://addons/naejimer_3d_planet_generator/scenes/planet_gaseous.tscn
 res://Enemy/enemy_3d.tscn
-res://game_data.gd
-res://scenes/enemy_handeler.gd
-res://scenes/planet_handeler.gd
-res://Enemy/enemy_3d.gd
 res://scenes/menu.tscn
 res://scenes/pause_menu.tscn
-res://Pwen/pwen.gd
-res://addons/naejimer_3d_planet_generator/noises/planet_ice.tres

@@ -123,7 +123,7 @@ theme = SubResource("Theme_42gn2")
 text = "Quit"
 
 [node name="PlanetIce" parent="." instance=ExtResource("6_vv3gi")]
-transform = Transform3D(0.29974, 0, 1.97741, 0, 2, 0, -1.97741, 0, 0.29974, -0.0417837, -0.0848716, -0.0493224)
+transform = Transform3D(1.33287, 0, 1.49113, 0, 2, 0, -1.49113, 0, 1.33287, -0.0417837, -0.0848716, -0.0493224)
 
 [connection signal="pressed" from="menu_container/play_button" to="menu_container" method="_on_play_button_pressed"]
 [connection signal="pressed" from="menu_container/quit_button" to="menu_container" method="_on_quit_button_pressed"]

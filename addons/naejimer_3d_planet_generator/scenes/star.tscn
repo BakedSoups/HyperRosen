@@ -76,7 +76,7 @@ nodes/TimeScale/position = Vector2(140, 140)
 node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
 
 [node name="Star" type="MeshInstance3D"]
-transform = Transform3D(50.6497, 0, 86.2253, 0, 100, 0, -86.2253, 0, 50.6497, 0, 0, 0)
+transform = Transform3D(97.8369, 0, 20.6913, 0, 100, 0, -20.6913, 0, 97.8369, 0, 0, 0)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_rrqai")
 
