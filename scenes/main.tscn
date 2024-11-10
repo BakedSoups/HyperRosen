@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bqqgyqafm7xwp"]
+[gd_scene load_steps=32 format=3 uid="uid://bqqgyqafm7xwp"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_ahusb"]
 [ext_resource type="PackedScene" uid="uid://bel3nwkj83tfe" path="res://planets/moon.tscn" id="6_j8ggv"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://drrusnl5abkqh" path="res://planets/iceplanet.tscn" id="15_d68eo"]
 [ext_resource type="Script" path="res://scripts/button_container.gd" id="15_yylox"]
 [ext_resource type="Script" path="res://scenes/cameraman.gd" id="16_3lrhf"]
+[ext_resource type="Script" path="res://scenes/enemy_spawn_master.gd" id="17_5prbg"]
 [ext_resource type="Material" uid="uid://6u14cxj0xq0k" path="res://new_shader_material.tres" id="17_ixr2s"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="17_tk810"]
 
@@ -74,6 +75,21 @@ corner_radius_bottom_left = 5
 Button/styles/hover = SubResource("StyleBoxFlat_1p85y")
 Button/styles/normal = SubResource("StyleBoxFlat_vevb4")
 
+[sub_resource type="Animation" id="Animation_gss7j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.51406, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_v4yig"]
 resource_name = "turn_around"
 length = 2.0
@@ -88,21 +104,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, -1.51406, 0), Vector3(-0.623083, 1.8675, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_gss7j"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -1.51406, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1642b"]
@@ -195,7 +196,7 @@ transform = Transform3D(0.3, -0.000507889, 0, 0.000507889, 0.3, 0, 0, 0, 0.3, -3
 transform = Transform3D(50, -1.74393e-14, 1.74394e-14, 1.75908e-14, 49.9981, -0.436327, -1.72865e-14, 0.436327, 49.9981, 42.2727, 13.6279, 0.0769963)
 
 [node name="Star2" parent="." instance=ExtResource("12_yl8k1")]
-transform = Transform3D(6.14755, 0, -5.1192, 0, 8, 0, 5.1192, 0, 6.14755, -122.921, -93.1096, 112.96)
+transform = Transform3D(-3.64663, 0, 7.12044, 0, 8, 0, -7.12044, 0, -3.64663, -122.921, -93.1096, 112.96)
 skeleton = NodePath("../Star/Star")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Star2"]
@@ -208,7 +209,7 @@ omni_range = 25.058
 omni_attenuation = 10.0
 
 [node name="Star" parent="." instance=ExtResource("12_yl8k1")]
-transform = Transform3D(1.53691, 0, -1.27982, 0, 2, 0, 1.27982, 0, 1.53691, -31.4131, -15.2654, -32.4096)
+transform = Transform3D(-0.911672, 0, 1.78014, 0, 2, 0, -1.78014, 0, -0.911672, -31.4131, -15.2654, -32.4096)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Star"]
 light_color = Color(1, 1, 0.435294, 1)
@@ -220,7 +221,7 @@ omni_range = 25.058
 omni_attenuation = 10.0
 
 [node name="Star" parent="Star" instance=ExtResource("12_yl8k1")]
-transform = Transform3D(1.53691, 0, -1.27982, 0, 2, 0, 1.27982, 0, 1.53691, 3.32981, -4.63572, -12.567)
+transform = Transform3D(-18.2334, 0, 35.6026, 0, 40, 0, -35.6026, 0, -18.2334, 3231.51, -4.636, 604.431)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Star/Star"]
 light_color = Color(1, 1, 0.435294, 1)
@@ -234,11 +235,11 @@ omni_attenuation = 10.0
 [node name="Planet Handeler" type="Node3D" parent="."]
 script = ExtResource("13_bvi1f")
 
-[node name="Enemy3D" parent="." instance=ExtResource("12_2exwb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.4361, -8.56515, -30.5331)
-
 [node name="moon_1" parent="." instance=ExtResource("15_d68eo")]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 46.8669, -2.78957, 0.423151)
+
+[node name="Enemy3D" parent="moon_1" instance=ExtResource("12_2exwb")]
+transform = Transform3D(0.555556, 0, 0, 0, 0.555503, -0.00765981, 0, 0.00765981, 0.555503, -40.9873, -3.01091, -17.0864)
 
 [node name="Cameraman" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.739, 2.88)
@@ -247,13 +248,16 @@ collision_mask = 256
 script = ExtResource("16_3lrhf")
 
 [node name="Camera3D" type="Camera3D" parent="Cameraman"]
-transform = Transform3D(0.0567101, 0, -0.99839, 0, 1, 0, 0.99839, 0, 0.0567101, 0, 0.000330389, -0.000400066)
+transform = Transform3D(0.0567058, 0, -0.99839, 0, 1, 0, 0.99839, 0, 0.0567058, 0, 0.000330389, -0.000400066)
 fov = 60.6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Cameraman/Camera3D"]
 libraries = {
 "": SubResource("AnimationLibrary_1642b")
 }
+
+[node name="EnemySpawnMaster" type="Node3D" parent="."]
+script = ExtResource("17_5prbg")
 
 [connection signal="pressed" from="CanvasLayer/menu_container/play_button" to="CanvasLayer/menu_container" method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/menu_container/quit_button" to="CanvasLayer/menu_container" method="_on_quit_button_pressed"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ovb4psmnksof"]
+
+[ext_resource type="Script" path="res://planets/planet.gd" id="1_ybfq8"]
+[ext_resource type="PackedScene" uid="uid://dneumird5vcjw" path="res://addons/naejimer_3d_planet_generator/scenes/planet_lava.tscn" id="2_d42mi"]
+
+[sub_resource type="SphereShape3D" id="3"]
+radius = 10.0
+
+[sub_resource type="SphereShape3D" id="4"]
+radius = 30.0
+
+[node name="IcePlanet" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.927135)
+script = ExtResource("1_ybfq8")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.834498, 0, 0, 0, 0.780789, 0, 0, 0, 0.790469, 0, 0, 0)
+shape = SubResource("3")
+
+[node name="Area" type="Area3D" parent="."]
+gravity_space_override = 3
+gravity_point = true
+gravity = 22.178
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Area"]
+shape = SubResource("4")
+
+[node name="PlanetLava" parent="." instance=ExtResource("2_d42mi")]
+transform = Transform3D(13.8573, 0, 7.99838, 0, 16, 0, -7.99838, 0, 13.8573, 0, 0, 0)
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

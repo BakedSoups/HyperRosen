@@ -25,7 +25,7 @@ gravity = 22.178
 shape = SubResource("4")
 
 [node name="PlanetIce" parent="." instance=ExtResource("2_un3i8")]
-transform = Transform3D(-9.56471, 0, -12.8264, 0, 16, 0, 12.8264, 0, -9.56471, -1.67568, -0.672697, 0.139366)
+transform = Transform3D(15.9636, 0, 1.07835, 0, 16, 0, -1.07835, 0, 15.9636, -1.67568, -0.672697, 0.139366)
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

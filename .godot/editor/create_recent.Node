@@ -1,14 +1,14 @@
+MeshInstance3D
+Node3D
 AnimationPlayer
 CharacterBody3D
 RigidBody3D
 StaticBody3D
 PanelContainer
 Camera3D
-Node3D
 CPUParticles3D
 DirectionalLight3D
 OmniLight3D
 XRCamera3D
-MeshInstance3D
 CollisionShape3D
 ColorRect
