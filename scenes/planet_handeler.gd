@@ -64,11 +64,9 @@ func spawn_planet(planet_type: String) -> bool:
 	
 	if valid_position:
 		var node_name = ""
-		if planet_type == "moon":
-			moon_count += 1
-			node_name = "moon_" + str(moon_count)
-		else:
-			node_name = planet_type
+		moon_count += 1 
+		node_name = "moon_" + str(moon_count)
+
 			
 		# Set name for the root node
 		spawned_scene_copy.name = node_name

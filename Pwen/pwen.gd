@@ -10,6 +10,8 @@ var move_force = 25
 var jump_force = 15
 var y_velo = 0
 
+@onready var pause_menu = $"../CanvasLayer/pause_menu"
+
 var is_on_floor = false
 var floor_check_distance = 50  # Adjust based on your character's size
 
@@ -29,6 +31,7 @@ func _process(delta):
 		calc_gravity_direction(planet_name)
 	else: 
 		$AnimationPlayer.play("Swim")
+	pause_menu.testEsc()
 	_move()
 	
 func _integrate_forces(state):

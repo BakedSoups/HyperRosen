@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqqgyqafm7xwp"]
+[gd_scene load_steps=15 format=3 uid="uid://bqqgyqafm7xwp"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_ahusb"]
 [ext_resource type="PackedScene" uid="uid://bel3nwkj83tfe" path="res://planets/moon.tscn" id="6_j8ggv"]
-[ext_resource type="PackedScene" uid="uid://c6rfapywg2en6" path="res://scenes/pause_menu.tscn" id="7_7lgo7"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="11_apvpm"]
 [ext_resource type="PackedScene" uid="uid://dbsw5xttvl5jb" path="res://Enemy/enemy_3d.tscn" id="12_2exwb"]
 [ext_resource type="PackedScene" uid="uid://lk468n16kfqq" path="res://planets/planet_earth.tscn" id="12_jiwwv"]
@@ -75,8 +74,6 @@ material = ExtResource("17_ixr2s")
 offset_right = 1277.0
 offset_bottom = 718.0
 
-[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("7_7lgo7")]
-
 [node name="moon" parent="." instance=ExtResource("6_j8ggv")]
 transform = Transform3D(0.8, -1.1921e-07, -4.76836e-08, 1.1921e-07, 0.8, 1.18585e-20, 4.76836e-08, -7.10544e-15, 0.8, -31.6977, -15.201, -32.6481)
 
@@ -87,7 +84,7 @@ transform = Transform3D(0.3, -0.000507889, 0, 0.000507889, 0.3, 0, 0, 0, 0.3, -3
 transform = Transform3D(50, -1.74393e-14, 1.74393e-14, 1.75908e-14, 49.9981, -0.436327, -1.72865e-14, 0.436327, 49.9981, -30.6753, -4.97279, -37.6834)
 
 [node name="Star2" parent="." instance=ExtResource("12_yl8k1")]
-transform = Transform3D(-7.88371, 0, 1.35861, 0, 8, 0, -1.35861, 0, -7.88371, -122.921, -93.1096, 112.96)
+transform = Transform3D(-7.76795, 0, -1.91252, 0, 8, 0, 1.91252, 0, -7.76795, -122.921, -93.1096, 112.96)
 skeleton = NodePath("../Star/Star")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Star2"]
@@ -100,7 +97,7 @@ omni_range = 25.058
 omni_attenuation = 10.0
 
 [node name="Star" parent="." instance=ExtResource("12_yl8k1")]
-transform = Transform3D(-1.97095, 0, 0.339656, 0, 2, 0, -0.339656, 0, -1.97095, -31.4131, -15.2654, -32.4096)
+transform = Transform3D(-1.942, 0, -0.478134, 0, 2, 0, 0.478134, 0, -1.942, -31.4131, -15.2654, -32.4096)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Star"]
 light_color = Color(1, 1, 0.435294, 1)
@@ -112,7 +109,7 @@ omni_range = 25.058
 omni_attenuation = 10.0
 
 [node name="Star" parent="Star" instance=ExtResource("12_yl8k1")]
-transform = Transform3D(-1.97095, 0, 0.339656, 0, 2, 0, -0.339656, 0, -1.97095, 3.32981, -4.63572, -12.567)
+transform = Transform3D(-1.942, 0, -0.478134, 0, 2, 0, 0.478134, 0, -1.942, 3.32981, -4.63572, -12.567)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Star/Star"]
 light_color = Color(1, 1, 0.435294, 1)

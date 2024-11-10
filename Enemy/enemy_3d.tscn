@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbsw5xttvl5jb"]
+
+[ext_resource type="Script" path="res://Enemy/enemy_3d.gd" id="1_dyd3i"]
+[ext_resource type="Texture2D" uid="uid://bsnate2lcmm73" path="res://Enemy/Schwarzs_Child transparent.png" id="1_wqgov"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ctxkw"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ok0m6"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_vwbi2"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_wqgov")
+billboard_mode = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fgsie"]
+
+[node name="Enemy3D" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00146276, 0, -2.86102e-05)
+script = ExtResource("1_dyd3i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ctxkw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_ok0m6")
+surface_material_override/0 = SubResource("ORMMaterial3D_vwbi2")
+
+[node name="Alert" type="Area3D" parent="."]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Alert"]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+shape = SubResource("SphereShape3D_fgsie")
+
+[node name="IdleTimer" type="Timer" parent="."]
+wait_time = 3.04
+
+[node name="AlertTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="body_entered" from="Alert" to="." method="_on_alert_body_entered"]
+[connection signal="body_exited" from="Alert" to="." method="_on_alert_body_exited"]
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="AlertTimer" to="." method="_on_alert_timer_timeout"]

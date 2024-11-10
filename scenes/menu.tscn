@@ -1,0 +1,129 @@
+[gd_scene load_steps=17 format=3 uid="uid://dof43jgfrfqh2"]
+
+[ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_8echn"]
+[ext_resource type="Script" path="res://scripts/menu_sphere.gd" id="4_acj73"]
+[ext_resource type="Shader" path="res://scenes/pixelated.gdshader" id="5_5wrnv"]
+[ext_resource type="Script" path="res://scripts/button_container.gd" id="6_4mo68"]
+[ext_resource type="PackedScene" uid="uid://biy37ccrqck53" path="res://addons/naejimer_3d_planet_generator/scenes/planet_ice.tscn" id="6_vv3gi"]
+[ext_resource type="Material" uid="uid://6u14cxj0xq0k" path="res://new_shader_material.tres" id="6_yrmo1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oto35"]
+shader = ExtResource("5_5wrnv")
+shader_parameter/pixel_size = Vector2(4, 4)
+shader_parameter/pixel_factor = 0.5
+shader_parameter/enable_dithering = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t33lc"]
+bg_color = Color(0.807843, 0.458824, 0.733333, 1)
+skew = Vector2(1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnrqw"]
+bg_color = Color(0.305882, 0.439216, 0.843137, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_nsg6v"]
+Button/styles/hover = SubResource("StyleBoxFlat_t33lc")
+Button/styles/normal = SubResource("StyleBoxFlat_bnrqw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvfsg"]
+bg_color = Color(0.807843, 0.458824, 0.733333, 1)
+skew = Vector2(1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pcoi"]
+bg_color = Color(0.305882, 0.439216, 0.843137, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_k32fn"]
+Button/styles/hover = SubResource("StyleBoxFlat_dvfsg")
+Button/styles/normal = SubResource("StyleBoxFlat_1pcoi")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p85y"]
+bg_color = Color(0.807843, 0.458824, 0.733333, 1)
+skew = Vector2(1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vevb4"]
+bg_color = Color(0.305882, 0.439216, 0.843137, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_42gn2"]
+Button/styles/hover = SubResource("StyleBoxFlat_1p85y")
+Button/styles/normal = SubResource("StyleBoxFlat_vevb4")
+
+[node name="Menu" type="Node3D"]
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_8echn")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.422618, -0.694272, 0.582564, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 4.49079, -6.41058, 14.0372)
+shadow_enabled = true
+shadow_opacity = 0.75
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_oto35")
+offset_right = 1278.0
+offset_bottom = 722.0
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+texture_filter = 1
+material = ExtResource("6_yrmo1")
+offset_right = 1277.0
+offset_bottom = 718.0
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+radius = 0.886
+radial_segments = 20
+rings = 20
+script = ExtResource("4_acj73")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.956019, 0.293306, 0, -0.293306, 0.956019, 0, 0.757766, 2.35738)
+
+[node name="menu_container" type="VBoxContainer" parent="."]
+visibility_layer = 524288
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.5
+offset_top = -50.5
+offset_right = 73.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_4mo68")
+
+[node name="play_button" type="Button" parent="menu_container"]
+layout_mode = 2
+theme = SubResource("Theme_nsg6v")
+text = "Play"
+
+[node name="load_button" type="Button" parent="menu_container"]
+layout_mode = 2
+theme = SubResource("Theme_k32fn")
+text = "Load"
+
+[node name="quit_button" type="Button" parent="menu_container"]
+layout_mode = 2
+theme = SubResource("Theme_42gn2")
+text = "Quit"
+
+[node name="PlanetIce" parent="." instance=ExtResource("6_vv3gi")]
+transform = Transform3D(0.29974, 0, 1.97741, 0, 2, 0, -1.97741, 0, 0.29974, -0.0417837, -0.0848716, -0.0493224)
+
+[connection signal="pressed" from="menu_container/play_button" to="menu_container" method="_on_play_button_pressed"]
+[connection signal="pressed" from="menu_container/quit_button" to="menu_container" method="_on_quit_button_pressed"]

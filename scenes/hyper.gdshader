@@ -2,7 +2,7 @@ shader_type spatial;
 render_mode unshaded, depth_test_disabled;
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
-uniform float hyperbolic_factor : hint_range(0.1, 10.0) = 1.0;
+uniform float hyperbolic_factor : hint_range(0.1, 10.0) = 100.0;
 
 void vertex() {
     POSITION = vec4(VERTEX, 1.0);

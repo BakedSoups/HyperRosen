@@ -1,0 +1,110 @@
+[gd_scene load_steps=16 format=3 uid="uid://bqqgyqafm7xwp"]
+
+[ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_ahusb"]
+[ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_onms2"]
+[ext_resource type="Script" path="res://scenes/camera.gd" id="4_iuo83"]
+[ext_resource type="Shader" path="res://scenes/hyper.gdshader" id="4_ms1yt"]
+[ext_resource type="Script" path="res://scripts/view.gd" id="5_bg0fr"]
+[ext_resource type="PackedScene" path="res://planets/moon.tscn" id="6_j8ggv"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="11_apvpm"]
+[ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="13_jfda3"]
+[ext_resource type="Shader" path="res://scenes/pixelated.gdshader" id="15_affp8"]
+[ext_resource type="Material" uid="uid://6u14cxj0xq0k" path="res://new_shader_material.tres" id="17_ixr2s"]
+[ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="17_tk810"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1rl8h"]
+render_priority = 0
+shader = ExtResource("4_ms1yt")
+shader_parameter/hyperbolic_factor = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_vg6gg"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_38ys3"]
+font = ExtResource("17_tk810")
+font_size = 48
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oto35"]
+shader = ExtResource("15_affp8")
+shader_parameter/pixel_size = Vector2(4, 4)
+shader_parameter/pixel_factor = 0.5
+shader_parameter/enable_dithering = true
+
+[node name="Main" type="Node3D"]
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_ahusb")
+
+[node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_onms2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.498848)
+view = NodePath("../View")
+
+[node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 0, 0, 0)
+script = ExtResource("5_bg0fr")
+target = NodePath("../Player")
+
+[node name="Camera" type="Camera3D" parent="View"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+current = true
+fov = 40.0
+script = ExtResource("4_iuo83")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="View/Camera"]
+transform = Transform3D(0.965409, 8.42937e-08, -0.260741, -0.110194, 0.906309, -0.408, 0.236311, 0.422618, 0.874959, 0.145941, -0.0811301, -0.495765)
+material_override = SubResource("ShaderMaterial_1rl8h")
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_vg6gg")
+skeleton = NodePath("../../..")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.422618, -0.694272, 0.582564, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 4.49079, -6.41058, 14.0372)
+shadow_enabled = true
+shadow_opacity = 0.75
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("11_apvpm")
+
+[node name="Icon" type="TextureRect" parent="HUD"]
+offset_left = 57.0
+offset_top = 67.0
+offset_right = 313.0
+offset_bottom = 323.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("13_jfda3")
+
+[node name="x" type="Label" parent="HUD"]
+offset_left = 112.0
+offset_top = 64.0
+offset_right = 144.0
+offset_bottom = 123.0
+text = "×"
+label_settings = SubResource("LabelSettings_38ys3")
+
+[node name="Coins" type="Label" parent="HUD"]
+offset_left = 144.0
+offset_top = 64.0
+offset_right = 368.0
+offset_bottom = 123.0
+text = "0"
+label_settings = SubResource("LabelSettings_38ys3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_oto35")
+offset_right = 1278.0
+offset_bottom = 722.0
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("17_ixr2s")
+offset_right = 1277.0
+offset_bottom = 718.0
+
+[node name="moon" parent="." instance=ExtResource("6_j8ggv")]
+transform = Transform3D(1, 0, 1.78814e-07, 1.49012e-07, 1, 2.08616e-07, 5.96046e-08, 0, 1, 0.488463, -11.5925, 1.87945)
+
+[connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
