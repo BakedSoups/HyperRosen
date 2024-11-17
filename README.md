@@ -1,24 +1,25 @@
 
 ![Logo](./ReadMePhotos/Logo.png)
-### Explore an Infinite Galaxy!
+## Explore an Infinite Galaxy!
 Full Galaxy Simulator with platforming in mind all made in godot!
 
 ![Image](./ReadMePhotos/Menu.png)
-#### Planet Generator
+### Planet Generator
 Currently using a 3d Vector field Hyper Rosen Randomly Fills in Spaces while keeping the areas of other planets in mind 
 
-###### Plans for Generator
+### Plans for Generator
 - Use perlin noise
 - Swirl effect
 - Relu number map 
 - Planet Placement 
 
-## TO do 
+#### TO do 
 -   Animal Generation 
-- 
+-   Crafting System
 
 Amplitude Y axis
 Frequency X Axis 
+
 #### Creating Terrain 
 **Layering noise**
 octaves:  
@@ -41,8 +42,9 @@ Example
      
 octave shifts
 
-#### Shaping the galaxy
+## Shaping the galaxy
 ![Image](./ReadMePhotos/GalaxyMap.png)
+
 Creating a Galaxy MAP 
 - Perlin noise generates a 2D map 
 - swirl noise using a swirl filter 
