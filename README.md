@@ -1,9 +1,9 @@
 
-![Logo]()
+![Logo](./ReadMePhotos/Logo.png)
 ### Explore an Infinite Galaxy!
-Full Galaxy Simulator with platforming in mind
+Full Galaxy Simulator with platforming in mind all made in godot!
 
-![Image](https://cdn.discordapp.com/attachments/747563326950604892/1305977165996757062/image.png?ex=6734fd84&is=6733ac04&hm=625ee704b07619a8224827cf1a82f668ba649ebfd42e0450db5f9d52fa91d353&)
+![Image](./ReadMePhotos/Menu.png)
 #### Planet Generator
 Currently using a 3d Vector field Hyper Rosen Randomly Fills in Spaces while keeping the areas of other planets in mind 
 
@@ -42,7 +42,7 @@ Example
 octave shifts
 
 #### Shaping the galaxy
-
+![Image](./ReadMePhotos/GalaxyMap.png)
 Creating a Galaxy MAP 
 - Perlin noise generates a 2D map 
 - swirl noise using a swirl filter 
